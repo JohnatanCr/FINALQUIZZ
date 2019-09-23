@@ -11,6 +11,7 @@ class GameViewModel(context: Context) : ViewModel() {
     var currentPis: Int
     var currentQuestion: Int
     var usedChet: Boolean = false
+    var currentScore = 0
 
     init {
         currentQuestion = 0

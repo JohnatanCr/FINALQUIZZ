@@ -1,7 +1,4 @@
 package com.example.examen2
-import com.example.examen2.R
-import android.content.Context
-import android.content.res.Resources
 
 
 class Game_Configuration() {
