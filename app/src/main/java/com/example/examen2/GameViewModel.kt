@@ -10,8 +10,10 @@ class GameViewModel(context: Context) : ViewModel() {
 
     var currentPis: Int = 0
     var currentQuestion: Int = 0
+    lateinit var gameQuestion : List<Question>
 
     init {
+
         conf.categoriesList =
             listOf(
                 Category(
@@ -193,6 +195,7 @@ class GameViewModel(context: Context) : ViewModel() {
                     )
                 )
             )
+        gameQuestion = getGameQuestions()
     }
 
     private fun setQuestions(list: MutableList<Category>): MutableList<Question> {
@@ -235,16 +238,16 @@ class GameViewModel(context: Context) : ViewModel() {
         return setQuestions(finalQuest)
     }
 
-//    public val numOfQuestion
-//        get() = questions.size
-//
-//    public fun getCurrentQuestion() = questions[currentQuestion]
-//
-//    public fun nextQuestion() {
-//        currentQuestion = (currentQuestion + 1) % questions.size
-//    }
-//
-//    public fun previousQuestion() {
-//        currentQuestion = (currentQuestion + questions.size - 1) % questions.size
-//    }
+    public val numOfQuestion
+        get() = conf.questions_number
+
+    public fun getCurrentQuestion() = questions[currentQuestion]
+
+    public fun nextQuestion() {
+        currentQuestion = (currentQuestion + 1) % questions.size
+    }
+
+    public fun previousQuestion() {
+        currentQuestion = (currentQuestion + questions.size - 1) % questions.size
+    }
 }
