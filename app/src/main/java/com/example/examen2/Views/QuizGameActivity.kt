@@ -49,10 +49,7 @@ class QuizGameActivity : AppCompatActivity() {
         questionNumTextView = findViewById(R.id.quesNum_text)
         cluesNumTextView = findViewById(R.id.pistas_counter)
 
-        var cine_questions = resources.getStringArray(R.array.quest_cine)
-
-
-        questionTextView.text = model.getGameQuestions()[0].questions_string[0]
+        questionTextView.text = model.getGameQuestions()[0].question
 }
 
     fun onAnswered(){
