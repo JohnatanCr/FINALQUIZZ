@@ -161,12 +161,19 @@ class GameViewModel(context: Context) : ViewModel() {
 
     public fun getCurrentQuestion() = questions[currentQuestion]
 
-    public fun nextQuestion(){
+    public fun nextQuestion() {
         currentQuestion = (currentQuestion + 1) % questions.size
     }
-    public fun previousQuestion(){
+
+    public fun previousQuestion() {
         currentQuestion = (currentQuestion + questions.size - 1) % questions.size
     }
 
-    public fun get
+    public fun usedPista() {
+        currentPis = if (currentPis > 0) {
+            currentPis--
+        } else {
+            0
+        }
+    }
 }
