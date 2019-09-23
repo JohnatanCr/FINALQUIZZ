@@ -8,10 +8,14 @@ class GameViewModel(context: Context) : ViewModel() {
 
     var conf = Configuration.conf
     lateinit var questions: List<String>
-    var currentPis:Int=0
-    var currentQuestion:Int=0
+    var currentPis: Int
+    var currentQuestion: Int
+    var usedChet: Boolean = false
 
     init {
+        currentQuestion = 0
+        usedChet = false
+        currentPis = conf.clues_number
         conf.categoriesList =
             listOf(
                 Category(
@@ -151,6 +155,7 @@ class GameViewModel(context: Context) : ViewModel() {
         finalQuest.shuffle()
         return finalQuest
     }
+
     public val numOfQuestion
         get() = questions.size
 
@@ -162,4 +167,6 @@ class GameViewModel(context: Context) : ViewModel() {
     public fun previousQuestion(){
         currentQuestion = (currentQuestion + questions.size - 1) % questions.size
     }
+
+    public fun get
 }
